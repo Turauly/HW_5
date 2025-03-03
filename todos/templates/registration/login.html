@@ -1,0 +1,17 @@
+{% extends "todos/base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <h2>Кіру</h2>
+    {% if form.errors %}
+        <div class="alert alert-danger">Қате логин немесе құпия сөз</div>
+    {% endif %}
+    <form method="POST" action="{% url 'login' %}">
+        {% csrf_token %}
+        <label>Пайдаланушы аты</label>
+        <input type="text" name="username" class="form-control">
+        <label>Құпия сөз</label>
+        <input type="password" name="password" class="form-control">
+        <button type="submit" class="btn btn-primary mt-3">Кіру</button>
+    </form>
+</div>
+{% endblock %}

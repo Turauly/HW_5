@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <h2>Кіру</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="Логин" class="form-control"><br>
+        <input type="password" name="password" placeholder="Құпия сөз" class="form-control"><br>
+        <button type="submit" class="btn btn-primary">Кіру</button>
+    </form>
+</div>
+{% endblock %}

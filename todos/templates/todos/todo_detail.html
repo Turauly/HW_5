@@ -1,0 +1,18 @@
+{% extends "todos/base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Тапсырма туралы мәлімет</h2>
+
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">{{ todo.title }}</h5>
+            <p class="card-text"><strong>Сипаттама:</strong> {{ todo.description }}</p>
+            <p class="card-text"><strong>Мерзімі:</strong> {{ todo.due_date }}</p>
+            <p class="card-text"><strong>Күйі:</strong> {% if todo.status %}✅ Аяқталды{% else %}⏳ Орындау керек{% endif %}</p>
+        </div>
+    </div>
+
+    <a href="{% url 'todo_list' %}" class="btn btn-secondary mt-3">Артқа</a>
+</div>
+{% endblock %}

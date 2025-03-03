@@ -1,0 +1,40 @@
+{% extends "todos/base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Жаңа тапсырма қосу</h2>
+
+    {% if form.errors %}
+        <div class="alert alert-danger">
+            <strong>Қате!</strong> Формада қателер бар. Қайта тексеріңіз.
+        </div>
+    {% endif %}
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <div class="mb-3">
+            <label for="id_title" class="form-label">Атауы</label>
+            <input type="text" name="title" id="id_title" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="id_description" class="form-label">Сипаттама</label>
+            <textarea name="description" id="id_description" class="form-control" rows="3" required></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label for="id_due_date" class="form-label">Мерзімі</label>
+            <input type="date" name="due_date" id="id_due_date" class="form-control" required>
+        </div>
+
+        <div class="mb-3 form-check">
+            <input type="checkbox" name="status" id="id_status" class="form-check-input">
+            <label for="id_status" class="form-check-label">Аяқталды</label>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Сақтау</button>
+        <a href="{% url 'todo_list' %}" class="btn btn-secondary">Болдырмау</a>
+    </form>
+</div>
+{% endblock %}

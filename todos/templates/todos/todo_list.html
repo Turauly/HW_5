@@ -1,0 +1,15 @@
+{% extends "todos/base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <h2>Менің Todo-ларым</h2>
+    <a href="{% url 'todo_add' %}" class="btn btn-success">Жаңа Todo қосу</a>
+    <ul class="list-group mt-3">
+        {% for todo in todos %}
+            <li class="list-group-item">
+                <a href="{% url 'todo_detail' todo.id %}">{{ todo.title }}</a>
+                <a href="{% url 'todo_delete' todo.id %}" class="btn btn-danger btn-sm float-end">Жою</a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
